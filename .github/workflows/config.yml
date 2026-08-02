@@ -1,0 +1,40 @@
+# SpawnGroup config
+#
+# Setiap "group" berisi daftar nama world (harus sama persis dengan nama
+# folder world / nama di Multiverse) dan satu titik spawn tujuan.
+#
+# Saat player mengetik /spawn, plugin akan mengecek player sedang berada
+# di world mana, mencari group yang memuat world itu, lalu teleport
+# player ke "spawn" milik group tersebut.
+#
+# Cara paling gampang mengisi koordinat spawn: pakai command
+#   /spawngroup setspawn <namaGroup>
+# sambil berdiri di lokasi yang diinginkan (misalnya di lobby).
+# Koordinat di bawah ini hanya contoh awal.
+
+groups:
+  survival:
+    worlds:
+      - world
+      - world_nether
+      - world_the_end
+    spawn:
+      world: lobby
+      x: 0.5
+      y: 100.0
+      z: 0.5
+      yaw: 0.0
+      pitch: 0.0
+
+  rpg:
+    worlds:
+      - rpg_world
+      - rpg_world_nether
+      - rpg_world_the_end
+    spawn:
+      world: lobby_rpg
+      x: 0.5
+      y: 100.0
+      z: 0.5
+      yaw: 0.0
+      pitch: 0.0
