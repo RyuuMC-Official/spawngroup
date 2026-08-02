@@ -1,8 +1,12 @@
-name:  Plugin
+name: Build Plugin
 
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'pom.xml'
+      - '.github/workflows/build.yml'
   workflow_dispatch: {}
 
 jobs:
@@ -10,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout kode
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'temurin'
           java-version: '17'
@@ -22,8 +26,14 @@ jobs:
       - name: Build dengan Maven
         run: mvn -B clean package
 
+      - name: Verifikasi isi jar
+        run: |
+          echo "=== Isi SpawnGroup.jar ==="
+          unzip -l target/SpawnGroup.jar
+
       - name: Upload hasil jar
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: SpawnGroup-jar
           path: target/SpawnGroup.jar
+          if-no-files-found: error
