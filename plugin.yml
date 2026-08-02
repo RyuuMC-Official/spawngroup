@@ -1,0 +1,23 @@
+name: SpawnGroup
+version: '1.0.0'
+main: com.example.spawngroup.SpawnGroupPlugin
+api-version: '1.20'
+author: YourName
+description: Plugin untuk /spawn per world group (cocok dipakai bersama Multiverse-Core)
+
+commands:
+  spawn:
+    description: Teleport ke spawn group dari world tempat kamu berada sekarang
+    usage: /<command> [namaGroup]
+  spawngroup:
+    description: Kelola spawn group (reload, setspawn, list)
+    usage: /<command> <reload|setspawn|list> [namaGroup]
+    permission: spawngroup.admin
+
+permissions:
+  spawngroup.spawn.others:
+    description: Izin untuk teleport ke spawn group lain lewat /spawn <group>
+    default: op
+  spawngroup.admin:
+    description: Izin untuk mengelola spawn group (setspawn, reload, list)
+    default: op
